@@ -8,7 +8,7 @@ SELECT FirstName, LastName, CustomerId, Country
 
 SELECT cus.CustomerID, cus.FirstName || ' ' || cus.LastName AS FullName, cus.Country FROM Customer as cus WHERE Country <> "USA";
 ```
-** 2. Provide a query only showing the Customers from Brazil.**
+**2. Provide a query only showing the Customers from Brazil.**
 ```SQL
   SELECT FirstName, LastName, CustomerId, Country
  FROM Customer
