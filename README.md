@@ -5,7 +5,7 @@
 SELECT FirstName, LastName, CustomerId, Country
  FROM Customer
  WHERE Country != "USA"
-
+ 			OR
 SELECT cus.CustomerID, cus.FirstName || ' ' || cus.LastName AS FullName, cus.Country FROM Customer as cus WHERE Country <> "USA";
 ```
 **2. Provide a query only showing the Customers from Brazil.**
@@ -13,7 +13,7 @@ SELECT cus.CustomerID, cus.FirstName || ' ' || cus.LastName AS FullName, cus.Cou
   SELECT FirstName, LastName, CustomerId, Country
  FROM Customer
  WHERE Country = "Brazil"
- //
+ 			OR
  SELECT cus.CustomerID, cus.FirstName || ' ' || cus.LastName AS FullName, cus.Country FROM Customer as cus WHERE Country == "Brazil";
  ```
  **3. Provide a query showing the Invoices of customers who are from Brazil. The resultant table should show the customer's full name, Invoice ID, Date of the invoice and billing country.**
