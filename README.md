@@ -84,6 +84,18 @@ WHERE Title == "Sales Support Agent";
 
 **7. Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices and customers.**
 ```SQL
+SELECT
+c.FirstName || " " || c.LastName AS Customer,
+i.Total AS InvoiceTotal,
+i.BillingCountry,
+e.FirstName || " " || e.LastName AS SalesAgent
+FROM Employee e
+INNER JOIN Customer c 
+  ON e.EmployeeID = c.SupportRepId
+INNER JOIN Invoice i 
+  ON c.CustomerId = i.CustomerId
+WHERE e.Title = "Sales Support Agent"
+ORDER BY Customer
 
 ```
 
