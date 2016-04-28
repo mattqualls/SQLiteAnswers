@@ -146,14 +146,21 @@ GROUP BY InvoiceId
 ```SQL
 SELECT il.InvoiceLineId, Track.Name
 FROM InvoiceLine AS il
-INNER JOIN Track 
-ON Track.TrackId = il.TrackId 
+INNER JOIN Track ON Track.TrackId = il.TrackId 
 ORDER BY InvoiceLineId
 ```
 
 **12. Provide a query that includes the purchased track name AND artist name with each invoice line item.**
 ```SQL
-
+SELECT
+InvoiceLine.InvoiceLineId, 
+Track.Name AS [TrackName], 
+Artist.Name AS [ArtistName] 
+FROM InvoiceLine 
+INNER JOIN Track ON Track.TrackId = InvoiceLine.TrackId
+INNER JOIN Album ON Album.AlbumId = Track.AlbumId
+INNER JOIN Artist ON Artist.ArtistId = Album.ArtistId 
+ORDER BY InvoiceLineId
 ```
 
 **13. Provide a query that shows the # of invoices per country. HINT: GROUP BY**
