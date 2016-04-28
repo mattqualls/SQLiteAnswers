@@ -249,12 +249,7 @@ GROUP BY [Sales Agent]
 
 **22. Provide a query that shows the most purchased track of 2013.**
 ```SQL
-SELECT Track.Name AS Track, 
-COUNT(InvoiceLine.TrackId) AS [Amount Purchased] 
-FROM Track
-INNER JOIN InvoiceLine ON InvoiceLine.TrackId = Track.TrackId 
-GROUP BY Track.TrackId 
-ORDER BY [Amount Purchased] DESC
+
 ```
 
 **23. Provide a query that shows the top 5 most purchased tracks over all.**
