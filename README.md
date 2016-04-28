@@ -127,7 +127,10 @@ LIKE '%2011%'
 
 **9. Looking at the InvoiceLine table, provide a query that COUNTs the number of line items for Invoice ID 37.**
 ```SQL
-
+SELECT COUNT(*) 
+FROM InvoiceLine 
+WHERE InvoiceId = 37
+--total of 4 records.
 ```
 
 **10. Looking at the InvoiceLine table, provide a query that COUNTs the number of line items for each Invoice. HINT: GROUP BY**
