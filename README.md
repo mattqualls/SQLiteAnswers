@@ -101,6 +101,27 @@ ORDER BY Customer
 
 **8. How many Invoices were there in 2009 and 2011? What are the respective total sales for each of those years?(include both the answers and the queries used to find the answers)**
 ```SQL
+SELECT COUNT(*) 
+FROM Invoice 
+WHERE InvoiceDate 
+LIKE '%2009%'
+--83 total invoices for 2009.
+SELECT COUNT(*) 
+FROM Invoice 
+WHERE InvoiceDate 
+LIKE '%2011%'
+--83 total invoices for 2011.
+SELECT SUM(Total) AS [2009 Total Sales] 
+FROM Invoice 
+WHERE InvoiceDate 
+LIKE '%2009%'
+--449.46 total sales for 2009.
+SELECT SUM(Total) AS [2011 Total Sales] 
+FROM Invoice 
+WHERE InvoiceDate 
+LIKE '%2011%'
+--469.58 total sales for 2011.
+
 
 ```
 
