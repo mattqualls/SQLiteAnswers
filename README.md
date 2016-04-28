@@ -165,7 +165,11 @@ ORDER BY InvoiceLineId
 
 **13. Provide a query that shows the # of invoices per country. HINT: GROUP BY**
 ```SQL
-
+SELECT 
+Invoice.BillingCountry, 
+COUNT(Invoice.InvoiceId) AS [Total number of Invoices] 
+FROM Invoice 
+GROUP BY Invoice.BillingCountry
 ```
 
 **14. Provide a query that shows the total number of tracks in each playlist. The Playlist name should be include on the resulant table.**
