@@ -137,7 +137,7 @@ WHERE InvoiceId = 37
 ```SQL
 SELECT
 InvoiceId, 
-COUNT(InvoiceLineId)  AS InvoiceCount
+COUNT(InvoiceLineId)  AS TotalInvoiceCount
 FROM InvoiceLine
 GROUP BY InvoiceId
 ```
