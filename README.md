@@ -144,7 +144,11 @@ GROUP BY InvoiceId
 
 **11. Provide a query that includes the track name with each invoice line item.**
 ```SQL
-
+SELECT il.InvoiceLineId, Track.Name
+FROM InvoiceLine AS il
+INNER JOIN Track 
+ON Track.TrackId = il.TrackId 
+ORDER BY InvoiceLineId
 ```
 
 **12. Provide a query that includes the purchased track name AND artist name with each invoice line item.**
