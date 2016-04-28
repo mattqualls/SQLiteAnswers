@@ -214,7 +214,17 @@ GROUP BY Invoice.InvoiceId
 
 **17. Provide a query that shows total sales made by each sales agent.**
 ```SQL
-
+SELECT
+Employee.FirstName || " " || Employee.LastName AS [Sales Agent],
+SUM(Invoice.Total) AS [Total Sales]
+FROM Employee 
+INNER JOIN Customer  ON Employee.EmployeeID = Customer.SupportRepId
+INNER JOIN Invoice  ON Customer.CustomerId = Invoice.CustomerId
+WHERE Employee.Title = "Sales Support Agent"
+GROUP BY [Sales Agent]
+--Steve Johnson: $720.16
+--Margaret Park: $775.40
+--Jane Peacock: $833.04
 ```
 
 **18. Which sales agent made the most in sales in 2009? HINT: MAX**
