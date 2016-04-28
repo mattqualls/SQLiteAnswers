@@ -203,6 +203,12 @@ INNER JOIN Genre g ON t.GenreId = g.GenreId
 
 **16. Provide a query that shows all Invoices but includes the # of invoice line items.**
 ```SQL
+SELECT 
+Invoice.InvoiceId,
+COUNT(InvoiceLine.InvoiceId) 
+FROM Invoice 
+INNER JOIN InvoiceLine ON InvoiceLine.InvoiceId = Invoice.InvoiceId 
+GROUP BY Invoice.InvoiceId
 
 ```
 
