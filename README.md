@@ -16,7 +16,9 @@ WHERE Country <> "USA";
  FROM Customer
  WHERE Country = "Brazil"
  			--OR
- SELECT cus.CustomerID, cus.FirstName || ' ' || cus.LastName AS FullName, cus.Country FROM Customer as cus WHERE Country == "Brazil";
+ SELECT cus.CustomerID, cus.FirstName || ' ' || cus.LastName AS FullName, cus.Country 
+ FROM Customer as cus 
+ WHERE Country == "Brazil";
  ```
  **3. Provide a query showing the Invoices of customers who are from Brazil. The resultant table should show the customer's full name, Invoice ID, Date of the invoice and billing country.**
 ```SQL
@@ -44,6 +46,10 @@ SELECT
 * 
 FROM Employee e
 WHERE e.Title = "Sales Support Agent"
+		--or
+SELECT emp.EmployeeId, emp.FirstName || ' ' || emp.LastName as FullName, emp.Title 
+FROM Employee as emp 
+WHERE Title == "Sales Support Agent";
 ```
 
 **5. Provide a query showing a unique list of billing countries from the Invoice table.**
@@ -51,7 +57,9 @@ WHERE e.Title = "Sales Support Agent"
 SELECT DISTINCT
 i.BillingCountry
 FROM Invoice i
-
+		--or
+SELECT DISTINCT inv.BillingCountry 
+FROM Invoice as inv;
 ```
 
 **6. Provide a query that shows the invoices associated with each sales agent. The resultant table should include the Sales Agent's full name.**
@@ -64,6 +72,14 @@ INNER JOIN Customer c ON e.EmployeeID = c.SupportRepId
 INNER JOIN Invoice i ON c.CustomerId = i.CustomerId
 WHERE e.Title = "Sales Support Agent"
 ORDER BY SalesAgent
+		--or
+SELECT emp.FirstName || ' ' || emp.LastName as AssociatedRepName, inv.InvoiceId, inv.Total 
+FROM Customer as cust 
+INNER JOIN Employee as emp 
+ON cust.SupportRepId = emp.EmployeeId 
+INNER JOIN Invoice as inv 
+ON cust.CustomerId = inv.CustomerId 
+WHERE Title == "Sales Support Agent";
 ```
 
 **7. Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices and customers.**
