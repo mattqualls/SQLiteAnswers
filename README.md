@@ -229,7 +229,18 @@ GROUP BY [Sales Agent]
 
 **18. Which sales agent made the most in sales in 2009? HINT: MAX**
 ```SQL
-
+SELECT
+SalesAgent, 
+Max(TotalSales)
+FROM
+(SELECT
+e.FirstName || " " || e.LastName AS SalesAgent,
+SUM(i.Total) AS TotalSales
+FROM Employee e
+INNER JOIN Customer c ON e.EmployeeID = c.SupportRepId
+INNER JOIN Invoice i ON c.CustomerId = i.CustomerId
+WHERE e.Title = "Sales Support Agent" AND i.InvoiceDate LIKE "2009%"
+GROUP BY SalesAgent)
 ```
 
 **19. Which sales agent made the most in sales over all?**
