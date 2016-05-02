@@ -269,7 +269,8 @@ GROUP BY Employee.LastName
 
 **21. Provide a query that shows the total sales per country. Which country's customers spent the most?**
 ```SQL
-SELECT Invoice.BillingCountry AS [Country], SUM(Invoice.Total) AS [Total Sales] 
+SELECT Invoice.BillingCountry AS [Country], 
+SUM(Invoice.Total) AS [Total Sales] 
 FROM Invoice 
 GROUP BY Invoice.BillingCountry 
 ORDER BY [Total Sales] DESC
