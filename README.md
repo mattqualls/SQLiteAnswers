@@ -261,7 +261,8 @@ GROUP BY SalesAgent)
 
 **20. Provide a query that shows the # of customers assigned to each sales agent.**
 ```SQL
-SELECT Employee.FirstName || ' ' || Employee.LastName AS [Sales Agent], COUNT(Customer.SupportRepId) AS [# of Customers] 
+SELECT Employee.FirstName || ' ' || Employee.LastName AS [Sales Agent],
+COUNT(Customer.SupportRepId) AS [# of Customers] 
 FROM Employee 
 INNER JOIN Customer ON Customer.SupportRepId = Employee.EmployeeId 
 GROUP BY Employee.LastName
